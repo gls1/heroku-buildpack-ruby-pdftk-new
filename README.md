@@ -1,5 +1,28 @@
-Heroku buildpack: Ruby
+Heroku buildpack: Ruby + precompiled pdftk
 ======================
+How to install:
+
+1) Download PDFTK source (compiled for Heroku's Cedar Stack) from http://github.com/millie/pdftk-source
+
+2) Upload the tar.gz to your own S3 bucket.  Make it public.  Remember the S3 URL of the tar.gz file.
+
+3) Clone this repo to your own.
+
+4) In lib/custom/pdftk.rb, update source_url to reflect the S3 URL of your tar.gz file.  Update your repo.
+
+5) In your Heroku app, run 
+
+    heroku config:add BUILDPACK_URL=https://github.com/user/repo-name
+
+6) Add config vars to heroku like so
+
+	heroku config:set \
+	PATH=[your current PATH var]:/app/vendor/pdftk/bin \
+	LD_LIBRARY_PATH=[your current LD_LIBRARY_PATH var (if you have set before)]:/app/vendor/pdftk/lib
+
+
+---
+
 
 This is a [Heroku buildpack](http://devcenter.heroku.com/articles/buildpacks) for Ruby, Rack, and Rails apps. It uses [Bundler](http://gembundler.com) for dependency management.
 
