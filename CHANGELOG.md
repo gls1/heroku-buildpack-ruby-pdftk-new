@@ -4,6 +4,31 @@ Features:
 
 Bugfixes:
 
+## v91 (01/16/2013)
+
+Features:
+
+* Parallel gem installation with bundler 1.5.2
+
+Bugfixes:
+
+
+## v90 (01/09/2013)
+
+Features:
+
+* Rollback v89 due to bug in bundler 1.5.1
+
+Bugfixes:
+
+## v89 (01/09/2013)
+
+Features:
+
+* Use most recent version of bundler with support for parallel Gem installation
+
+Bugfixes:
+
 ## v86 (12/11/2013)
 
 Features:
